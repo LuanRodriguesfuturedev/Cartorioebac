@@ -185,6 +185,7 @@ int main()
         printf("\t1 - Registro de nomes:\n");
         printf("\t2 - Consultar nomes:\n");
         printf("\t3 - Deletar nomes:\n\n");
+        printf("\t4 - Sair do sistema\n\n");
         printf("Opção:"); // Solicita ao usuário para escolher uma opção do menu. //FIM MENU
 
         scanf("%d", &opcao); // Lê a opção escolhida pelo usuário e a armazena na variável 'opcao'.
@@ -204,6 +205,11 @@ int main()
             case 3: // Se a opção escolhida for 3, executa o código abaixo:
             deletar(); // Chama a função 'deletar'.
             break; // Sai da estrutura de seleção.
+
+            case 4:
+            printf("Obrigado por utilizar o sistema!\n");
+            return 0;
+            break;
         
         default: // Se a opção não for nenhum dos casos acima, executa o código abaixo:
             printf("Essa opção não existe!\n");
