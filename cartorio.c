@@ -206,12 +206,12 @@ int main()
             deletar(); // Chama a função 'deletar'.
             break; // Sai da estrutura de seleção.
 
-            case 4:
-            printf("Obrigado por utilizar o sistema!\n");
-            return 0;
-            break;
+            case 4: // Se a opção escolhida for 4, executa o código abaixo:
+            printf("Obrigado por utilizar o sistema!\n"); //imprimi a mensagem na tela do usuário
+            return 0;//Essa linha termina a execução da função atual e terminará o programa.
+            break;// Sai da estrutura de seleção.
         
-        default: // Se a opção não for nenhum dos casos acima, executa o código abaixo:
+            default: // Se a opção não for nenhum dos casos acima, executa o código abaixo:
             printf("Essa opção não existe!\n");
             system("pause");
             break; // Sai da estrutura de seleção.
