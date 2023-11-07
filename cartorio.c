@@ -180,7 +180,7 @@ int main()
      while (1) // Início de um loop infinito
     {
         printf("   Cartório da EBAC   \n\n");
-        printf("Login de administra!\n\nDigite a sua senha:");
+        printf("Login de administrador!\n\nDigite a sua senha:");
         scanf("%s", senhadigitada); // Lê a senha fornecida pelo usuário e a armazena na variável 'senhadigitada'.
 
         comparacao = strcmp(senhadigitada, "admin"); // Compara a senha digitada com a senha correta "admin".
