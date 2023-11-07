@@ -172,7 +172,31 @@ int main()
 {
     int opcao=0; // Declaração de uma variável inteira chamada 'opcao' e inicialização com o valor 0.
     int x=1; // Declaração de uma variável inteira chamada 'x' e inicialização com o valor 1.
+    char senhadigitada[]="a"; // Inicializa a variável 'senhadigitada' com o valor "a".
+    int comparacao; // Declaração da variável 'comparacao' como um inteiro.
 
+    setlocale(LC_ALL, "Portuguese"); // Configura a linguagem local para Português.
+
+     while (1) // Início de um loop infinito
+    {
+        printf("   Cartório da EBAC   \n\n");
+        printf("Login de administra!\n\nDigite a sua senha:");
+        scanf("%s", senhadigitada); // Lê a senha fornecida pelo usuário e a armazena na variável 'senhadigitada'.
+
+        comparacao = strcmp(senhadigitada, "admin"); // Compara a senha digitada com a senha correta "admin".
+
+        if(comparacao == 0) // Verifica se a comparação é igual a zero, o que significa que a senha está correta.
+        {
+            break; // Sai do loop
+        } 
+        else
+        {
+            printf("Senha incorreta! Tente novamente.\n\n");
+            system("pause");
+            system("cls");
+        }
+    } // Fim do loop infinito
+        
     for(x=1;x=1;) // Início de um loop 'for'. 
     //A variável 'x' é inicializada com 1 e a condição de repetição é 'x=1', o que fará o loop se repetir indefinidamente.
     {
@@ -218,4 +242,5 @@ int main()
         }
 
     }
+
 }
