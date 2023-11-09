@@ -5,19 +5,22 @@
 
 int validarCPF(char cpf[]) 
 {
-    int soma = 0; // Inicia uma variável 'soma' com valor 0
-    for (int i = 0; i < 9; i++) // Loop que percorre os 9 primeiros dígitos do CPF
+    int soma = 0; // Inicializa uma variável 'soma' com valor 0
+    int i, j; // Declarei as variáveis i e j aqui
+
+    for (i = 0; i < 9; i++) // Loop que percorre os 9 primeiros dígitos do CPF
     {
-        soma += (cpf[i] - '0') * (10 - i); // Converte o caractere 'cpf[i]' para um valor numérico subtraindo o valor ASCII de '0'
+        soma += (cpf[i] - '0') * (10 - i);// Converte o caractere 'cpf[i]' para um valor numérico subtraindo o valor ASCII de '0'
         // e multiplica pelo peso correspondente (10 - i)
     }
 
     int dv1 = (soma % 11 < 2) ? 0 : 11 - (soma % 11); // Calcula o primeiro dígito verificador (dv1)
 
     soma = 0; // Zera a variável 'soma' para ser reutilizada
-    for (int i = 0; i < 10; i++) // Loop que percorre os 10 dígitos do CPF
+
+    for (j = 0; j < 10; j++) // Troquei o nome da variável de i para j aqui
     {
-        soma += (cpf[i] - '0') * (11 - i); // Mesmo cálculo que no primeiro loop, mas incluindo o último dígito do CPF
+        soma += (cpf[j] - '0') * (11 - j); // Mesmo cálculo que no primeiro loop, mas incluindo o último dígito do CPF
     }
 
     int dv2 = (soma % 11 < 2) ? 0 : 11 - (soma % 11); // Calcula o segundo dígito verificador (dv2)
@@ -25,10 +28,13 @@ int validarCPF(char cpf[])
     if ((dv1 == (cpf[9] - '0')) && (dv2 == (cpf[10] - '0'))) // Verifica se os dígitos calculados batem com os dígitos do CPF original
     {
         return 1; // CPF válido
-
-    } else {
+    } 
+	
+	else 
+	{
         return 0; // CPF inválido
     }
+    
 }
 
 int registro()
