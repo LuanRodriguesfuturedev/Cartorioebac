@@ -117,7 +117,7 @@ int consulta()
 
     if (!validarCPF(cpf)) // Verifica se o CPF é válido usando a função validarCPF
     {
-        printf("CPF inválido. Tente novamente.\n"); // Se o CPF é inválido, imprime a mensagem no console
+        printf("\nCPF inválido. Tente novamente.\n"); // Se o CPF é inválido, imprime a mensagem no console
         system("pause"); //responsável por pausar a informação até que o usuário finalize o processo
         return; // Retorna da função
     }
@@ -137,41 +137,40 @@ int consulta()
         printf("\n\n");
     }
     
-    system("pause"); // Pausa a execução do programa até que o usuário pressione uma tecla
+        fclose(file); // Fecha o arquivo após a leitura
+        system("pause");
 
 }
 
 int deletar()
 {
-    char cpf[40]; // Declaração de uma variável 'cpf' como uma array de caracteres com espaço para 40 caracteres.
-
-    printf("Digite o CPF a ser deletado: "); // Exibe a mensagem solicitando ao usuário que digite o CPF que deseja deletar.
+    char cpf[40]; // Declaração de uma variável chamada 'cpf' do tipo char, que pode armazenar até 40 caracteres.
+    printf("Digite o CPF a ser deletado: "); // Exibe a mensagem solicitando ao usuário que digite o CPF.
     scanf("%s", cpf); // Lê o CPF digitado pelo usuário e o armazena na variável 'cpf'.
 
-    FILE *file; // Declara uma variável do tipo 'FILE' para manipular o arquivo
-    file = fopen(cpf, "r"); // Tenta abrir o arquivo com o nome do CPF em modo de leitura ("r")
-	fclose(file); //fecha o arquivo
+    FILE *file; // Declaração de uma variável do tipo 'FILE' para manipular o arquivo.
+    file = fopen(cpf, "r"); // Tenta abrir o arquivo com o nome do CPF em modo de leitura ("r").
 
-    remove(cpf); //responsável por remover
-	
-	if(file == NULL) //análise de usuário inexistente 
-    // Esta linha verifica se o ponteiro 'file' é nulo, o que indica que houve um problema ao abrir 
-    // o arquivo ou o arquivo não foi encontrado.
-	{
-		printf("Usuário não se encontra no sistema!.\n");
-		system("pause");
-	}
+    if(file == NULL) // Verifica se o arquivo foi aberto corretamente.
+    {
+        printf("Usuário não se encontra no sistema!.\n");  // Imprime a mensagem na tela do usuário
+        system("pause"); // Pausa a execução do programa até que o usuário pressione uma tecla.
+    }
 
-    remove(cpf); //responsável por remover
-   
-	if(file != NULL) //análise de usuário existente
-    // Esta linha verifica se o ponteiro 'file' não é nulo, o que indica que o arquivo foi aberto com sucesso.
-	{
-	    printf("Usuário deletado com sucesso!.\n");
-		system("pause");
-		fclose(file); //fecha o arquivo
-	}
-    
+    else
+    {
+        fclose(file); // Fecha o arquivo antes de remover
+        int resultado = remove(cpf); // Remove o arquivo
+        if(resultado == 0) // Verifica se a operação de remoção foi bem-sucedida.
+        {
+            printf("Usuário deletado com sucesso!\n"); // Imprime a mensagem na tela do usuário
+        }
+        else // Se a operação de remoção falhou:
+        {
+            printf("Erro ao deletar o usuário.\n"); // Imprime a mensagem na tela do usuário
+        }
+        system("pause"); // Pausa a execução do programa até que o usuário pressione uma tecla.
+    }
 }
 
 int main()
